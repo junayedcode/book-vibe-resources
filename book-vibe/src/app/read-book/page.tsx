@@ -3,6 +3,7 @@ import { BooksContext } from '@/components/context/BooksContext';
 import { IBook } from '@/type/books.type';
 import React, { useContext } from 'react';
 import { Bar, BarChart, CartesianGrid, Label, LabelList, Tooltip, XAxis, YAxis } from 'recharts';
+import type { BarShapeProps, LabelProps } from "recharts";
 
 const getPath = (x: number, y: number, width: number, height: number) => {
   return `M${x},${y + height}C${x + width / 3},${y + height} ${x + width / 2},${y + height / 3}
