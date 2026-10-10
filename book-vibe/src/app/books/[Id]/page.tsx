@@ -11,11 +11,7 @@ interface IBookDetailsPage {
 
 const getBooks = async () => {
   try {
-    const res = await fetch("http://localhost:3000/booksData.json");
-
-    if (!res.ok) {
-      throw new Error("Failed to fetch books");
-    }
+    const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_BASE_URL}/booksData.json`);
 
     const data = await res.json();
 
