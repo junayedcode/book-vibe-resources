@@ -1,15 +1,17 @@
 import { IBook } from "@/type/books.type";
 import BookCard from "@/components/Shaerd/BookCard"; 
 
-const getBooks = async () => {
-  try {
-    const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_BASE_URL}/booksData.json`);
 
-    const data = await res.json();
+const getBooks = async (): Promise<IBook[]> => {
+  try {
+    const res = await fetch(
+  `${process.env.NEXT_PUBLIC_SERVER_BASE_URL}/booksData.json`
+);
+    const data: IBook[] = await res.json();
 
     return data;
   } catch (error) {
-    console.error("Errorrrrrrrrr", error);
+    console.error("Error fetching books:", error);
     return [];
   }
 };
