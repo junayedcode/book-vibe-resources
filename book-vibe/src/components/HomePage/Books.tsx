@@ -2,15 +2,12 @@ import React from "react";
 import BookCard from "../Shaerd/BookCard";
 import { IBook } from "@/type/books.type";
 
-const getBooks = async () => {
+const getBooks = async (): Promise<IBook[]> => {
   try {
-    const res = await fetch("http://localhost:3000/booksData.json");
-
-    if (!res.ok) {
-      throw new Error("Failed to fetch books");
-    }
-
-    const data = await res.json();
+    const res = await fetch(
+  `${process.env.NEXT_PUBLIC_SERVER_BASE_URL}/booksData.json`
+);
+    const data: IBook[] = await res.json();
 
     return data;
   } catch (error) {
